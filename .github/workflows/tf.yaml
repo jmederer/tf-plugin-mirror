@@ -35,6 +35,7 @@ jobs:
           ls -al 
           ./terraform providers mirror ./local-provider-mirror
           zip -r tf-provider.zip ./local-provider-mirror
+          base64 tf-provider.zip > tf-provider.zip.b64
 #      - name: 'Upload Artifact'
 #        uses: actions/upload-artifact@v2
 #        with:
@@ -45,7 +46,7 @@ jobs:
         run: |
           git config --local user.email "noreplay+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add ./tf-files/tf-provider.zip
+          git add ./tf-files/tf-provider.zip*
           git commit -m "Add TF Zip" -a
       - name: Push changes
         uses: ad-m/github-push-action@master
