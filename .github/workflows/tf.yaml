@@ -34,7 +34,7 @@ jobs:
           mkdir ./local-provider-mirror
           ls -al 
           ./terraform providers mirror ./local-provider-mirror
-          zip tf-provider.zip ./local-provider-mirror
+          zip -r tf-provider.zip ./local-provider-mirror
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v2
         with:
