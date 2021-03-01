@@ -30,6 +30,7 @@ jobs:
           rm tf.zip
           chmod +x terraform
           mkdir ./local-provider-mirror
+          ls -al 
           ./terraform providers mirror ./local-provider-mirror
           zip tf-provider.zip ./local-provider-mirror
       - name: 'Upload Artifact'
