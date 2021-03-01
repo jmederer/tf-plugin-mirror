@@ -36,9 +36,8 @@ jobs:
           ./terraform providers mirror ./local-provider-mirror
           zip tf-provider.zip ./local-provider-mirror
       - name: 'Upload Artifact'
-        working-directory: ./tf-files
         uses: actions/upload-artifact@v2
         with:
           name: tf-mirror
-          path: tf-provider.zip
+          path: ./tf-files/tf-provider.zip
           retention-days: 25
