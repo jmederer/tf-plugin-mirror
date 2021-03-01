@@ -23,8 +23,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Runs a set of commands using the runners shell
+      - uses: actions/checkout@main
       - name: Run a multi-line script
-        uses: actions/checkout@main
         working-directory: tf-files
         run: |
           curl https://releases.hashicorp.com/terraform/0.14.7/terraform_0.14.7_linux_amd64.zip -o ./tf.zip 
