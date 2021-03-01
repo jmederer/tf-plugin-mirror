@@ -49,4 +49,5 @@ jobs:
           git commit -m "Add TF Zip" -a
       - name: Push changes
         uses: ad-m/github-push-action@master
-        branch: zip
+        with:
+          branch: zip
