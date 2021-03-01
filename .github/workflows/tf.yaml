@@ -29,4 +29,4 @@ jobs:
           unzip tf.zip
           rm tf.zip
           chmod +x terraform
-          ./terraform providers mirror /tmp/local-provider-mirror
+          ./terraform providers mirror ./local-provider-mirror
