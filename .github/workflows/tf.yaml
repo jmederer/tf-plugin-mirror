@@ -35,9 +35,18 @@ jobs:
           ls -al 
           ./terraform providers mirror ./local-provider-mirror
           zip -r tf-provider.zip ./local-provider-mirror
-      - name: 'Upload Artifact'
-        uses: actions/upload-artifact@v2
-        with:
-          name: tf-mirror
-          path: ./tf-files/tf-provider.zip
-          retention-days: 25
+#      - name: 'Upload Artifact'
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: tf-mirror
+#          path: ./tf-files/tf-provider.zip
+#          retention-days: 25
+      - name: Commit files
+        run: |
+          git config --local user.email "noreplay+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add ./tf-files/tf-provider.zip
+          git commit -m "Add TF Zip" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        branch: zip
