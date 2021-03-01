@@ -31,10 +31,10 @@ jobs:
           unzip tf.zip
           rm tf.zip
           chmod +x terraform
-          mkdir ./local-provider-mirror
+          mkdir ./terraform-provider-mirror
           ls -al 
-          ./terraform providers mirror ./local-provider-mirror
-          zip -r tf-provider.zip ./local-provider-mirror
+          ./terraform providers mirror ./terraform-provider-mirror
+          zip -r tf-provider.zip ./terraform-provider-mirror
           base64 tf-provider.zip > tf-provider.zip.b64
 #      - name: 'Upload Artifact'
 #        uses: actions/upload-artifact@v2
