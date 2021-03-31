@@ -20,5 +20,9 @@ terraform {
       source = "rancher/rancher2"
       version = "1.12.0"
     }
+    kafka = {
+      source = "Mongey/kafka"
+      version = "0.3.0"
+    }
   }
 }
