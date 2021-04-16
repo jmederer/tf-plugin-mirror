@@ -32,5 +32,9 @@ terraform {
       source = "hashicorp/vault"
       version = ">= 2.19.0"
     }
+    aws = {
+      source = "hashicorp/aws"
+      version = ">= 3.36.0"
+    }
   }
 }

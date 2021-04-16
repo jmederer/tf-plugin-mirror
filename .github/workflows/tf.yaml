@@ -23,8 +23,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Runs a set of commands using the runners shell
-      - uses: actions/checkout@main
-      - name: Run a multi-line script
+      - name: Checkout
+        uses: actions/checkout@main
+      - name: Package
         working-directory: ./tf-files
         run: |
           curl https://releases.hashicorp.com/terraform/0.14.7/terraform_0.14.7_linux_amd64.zip -o ./tf.zip 
@@ -36,21 +37,15 @@ jobs:
           ./terraform providers mirror ./terraform-provider-mirror
           zip -r tf-provider.zip ./terraform-provider-mirror
           base64 tf-provider.zip > tf-provider.zip.b64
-#      - name: 'Upload Artifact'
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: tf-mirror
-#          path: ./tf-files/tf-provider.zip
-#          retention-days: 25
-      - name: Commit files
-        run: |
-          git config --local user.email "noreplay+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add ./tf-files/tf-provider.zip*
-          git commit -m "Add TF Zip" -a
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+      - name: Clean releases
+        uses: ame-yu/action-delete-latest-release@v2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: zip
-          force: true
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: latest
+          tag_name: latest
+          files: ./tf-files/tf-provider.zip.b64
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
