@@ -28,7 +28,7 @@ jobs:
       - name: Package
         working-directory: ./tf-files
         run: |
-          curl https://releases.hashicorp.com/terraform/0.14.7/terraform_0.14.7_linux_amd64.zip -o ./tf.zip 
+          curl -fs https://releases.hashicorp.com/terraform/1.0.4/terraform_1.0.4_linux_amd64.zip  -o ./tf.zip 
           unzip tf.zip
           rm tf.zip
           chmod +x terraform
