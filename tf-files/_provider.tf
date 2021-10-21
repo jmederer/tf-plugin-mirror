@@ -22,7 +22,7 @@ terraform {
     }
     kafka = {
       source = "Mongey/kafka"
-      version = ">= 0.3.3"
+      version = ">= 4.0.0"
     }
     kubernetes = {
       source = "hashicorp/kubernetes"
