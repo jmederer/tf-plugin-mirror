@@ -18,7 +18,7 @@ terraform {
     }
     rancher2 = {
       source = "rancher/rancher2"
-      version = "1.21.0"
+      version = "1.22.2"
     }
     kafka = {
       source = "Mongey/kafka"
