@@ -42,7 +42,7 @@ terraform {
     }
     flux = {
       source = "fluxcd/flux"
-      version = "0.12.0"
+      version = "0.12.1"
     }
     skopeo = {
       source = "abergmeier/skopeo"
