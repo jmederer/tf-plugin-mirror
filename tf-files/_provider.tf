@@ -48,5 +48,9 @@ terraform {
       source = "abergmeier/skopeo"
       version = "0.0.4"
     }
+    kustomization = {
+      source = "kbst/kustomization"
+      version = "0.7.2"
+    }
   }
 }
