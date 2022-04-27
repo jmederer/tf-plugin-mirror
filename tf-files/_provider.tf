@@ -40,10 +40,6 @@ terraform {
       source = "hashicorp/time"
       version = "0.7.2"
     }
-    flux = {
-      source = "fluxcd/flux"
-      version = "0.12.2"
-    }
     skopeo = {
       source = "abergmeier/skopeo"
       version = "0.0.4"
@@ -51,6 +47,10 @@ terraform {
     kustomization = {
       source = "kbst/kustomization"
       version = "0.7.2"
+    }
+    argocd = {
+      source = "oboukili/argocd"
+      version = "3.0.1"
     }
   }
 }
